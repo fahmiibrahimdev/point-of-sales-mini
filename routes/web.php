@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Livewire\MasterData\DaftarCustomer;
 use App\Http\Livewire\MasterData\DaftarSupplier;
+use App\Http\Livewire\MasterData\DataBarang;
 use App\Http\Livewire\MasterData\Satuan;
 
 /*
@@ -39,6 +40,7 @@ Route::group(['middleware' => ['auth']], function() {
 Route::group(['middleware' => ['auth', 'role:admin']], function() {
     Route::get('kategori', Kategori::class)->name('kategori');
     Route::get('satuan', Satuan::class)->name('satuan');
+    Route::get('daftar-barang',DataBarang::class)->name('daftar-barang');
     Route::get('daftar-supplier', DaftarSupplier::class)->name('daftar-supplier');
     Route::get('daftar-customer', DaftarCustomer::class)->name('daftar-customer');
 });

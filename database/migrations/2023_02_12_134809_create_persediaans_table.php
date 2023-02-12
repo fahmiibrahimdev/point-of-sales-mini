@@ -13,8 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('persediaans', function (Blueprint $table) {
+        Schema::create('persediaan', function (Blueprint $table) {
             $table->id();
+            $table->text('id_user');
+            $table->text('tanggal');
+            $table->text('id_barang');
+            $table->text('qty');
+            $table->text('keterangan');
+            $table->text('buku')->default('-');
+            $table->text('fisik')->default('-');
+            $table->text('selisih')->default('-');
+            $table->text('opname')->default('no');
+            $table->text('status');
             $table->timestamps();
         });
     }
@@ -26,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('persediaans');
+        Schema::dropIfExists('persediaan');
     }
 };
