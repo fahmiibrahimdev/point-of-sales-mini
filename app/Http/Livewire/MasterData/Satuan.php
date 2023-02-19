@@ -77,7 +77,7 @@ class Satuan extends Component
         $this->validate();
 
         ModelsSatuan::create([
-            'nama_satuan'     => $this->nama_satuan,
+            'nama_satuan'     => strtoupper($this->nama_satuan),
         ]);
 
         $this->alertShow(
@@ -104,7 +104,7 @@ class Satuan extends Component
         if( $this->dataId )
         {
             ModelsSatuan::findOrFail($this->dataId)->update([
-                'nama_satuan'     => $this->nama_satuan
+                'nama_satuan'     => strtoupper($this->nama_satuan),
             ]);
             $this->alertShow(
                 'success', 

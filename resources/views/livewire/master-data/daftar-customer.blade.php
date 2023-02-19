@@ -41,8 +41,8 @@
                             <thead class="tw-sticky tw-top-0">
                                 <tr class="tw-text-gray-700">
                                     <th width="15%" class="text-center">No</th>
-                                    <th>Nama</th>
-                                    <th>Nomor HP</th>
+                                    <th width="13%">Nama</th>
+                                    <th width="14%">Nomor HP</th>
                                     <th>Alamat</th>
                                     <th>Deskripsi</th>
                                     <th class="text-center">
@@ -56,7 +56,7 @@
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td class="text-left">{{ $row->nama_customer }}</td>
                                     <td class="text-left">{{ $row->hp_customer }}</td>
-                                    <td class="text-left">{{ $row->alamat_customer }}</td>
+                                    <td class="text-left">{{ Str::substr($row->alamat_customer, 0, 50) }}</td>
                                     <td class="text-left">{{ $row->deskripsi_customer }}</td>
                                     <td>
                                         <button class="btn btn-warning" wire:click='edit({{ $row->id }})'
@@ -94,7 +94,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="tambahDataModalLabel">Tambah Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" wire:click.prevent="cancel()" class="close" data-dismiss="modal"
+                        aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -120,7 +121,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary tw-bg-gray-300"
+                        <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary tw-bg-gray-300"
                             data-dismiss="modal">Close</button>
                         <button type="submit" wire:click.prevent="store()" wire:loading.attr="disabled"
                             class="btn btn-primary tw-bg-blue-500">Save Data</button>
@@ -164,7 +165,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary tw-bg-gray-300"
+                        <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary tw-bg-gray-300"
                             data-dismiss="modal">Close</button>
                         <button type="submit" wire:click.prevent="update()" wire:loading.attr="disabled"
                             class="btn btn-primary tw-bg-blue-500">Save Changes</button>

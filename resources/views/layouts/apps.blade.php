@@ -15,6 +15,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+        tr#table-row:nth-child(odd) {
+            background-color: rgb(249 250 251 / 1) !important;
+        }
+
     </style>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
@@ -114,7 +118,6 @@
                             {{ (request()->is('stok-masuk')) ? 'active' : '' }}
                             {{ (request()->is('stok-keluar')) ? 'active' : '' }}
                             {{ (request()->is('stok-opname')) ? 'active' : '' }}
-                            {{ (request()->is('kartu-stok')) ? 'active' : '' }}
                         ">
                             <a href="#" data-toggle="dropdown" class="nav-link has-dropdown"><i
                                     class="far fa-inventory"></i><span>Persediaan</span></a>
@@ -129,9 +132,11 @@
                                         Keluar</a></li>
                                 <li class="nav-item {{ (request()->is('stok-opname')) ? 'active' : '' }}"><a
                                         href="{{ url('stok-opname') }}" class="nav-link">Stok Opname</a></li>
-                                <li class="nav-item {{ (request()->is('kartu-stok')) ? 'active' : '' }}"><a
-                                        href="{{ url('kartu-stok') }}" class="nav-link">Kartu Stok</a></li>
                             </ul>
+                        </li>
+                        <li class="nav-item {{ (request()->is('kartu-stock')) ? 'active' : '' }}">
+                            <a href="{{ url('kartu-stock') }}" class="nav-link"><i class="far fa-pallet"></i><span>Kartu
+                                    Stock</span></a>
                         </li>
                         <li class="nav-item {{ (request()->is('transaksi')) ? 'active' : '' }}">
                             <a href="{{ url('transaksi') }}" class="nav-link"><i

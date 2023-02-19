@@ -128,7 +128,7 @@ class DataBarang extends Component
             'id_user'           => Auth::user()->id,
             'gambar'            => $imagePath,
             'kode_barang'       => $this->kode_barang,
-            'nama_barang'       => $this->nama_barang,
+            'nama_barang'       => strtoupper($this->nama_barang),
             'id_satuan'         => $this->id_satuan,
             'id_kategori'       => $this->id_kategori,
             'harga'             => $this->harga,
@@ -186,7 +186,7 @@ class DataBarang extends Component
             $data->update([
                 'id_user'           => Auth::user()->id,
                 'gambar'            => $imagePath,
-                'nama_barang'       => $this->nama_barang,
+                'nama_barang'       => strtoupper($this->nama_barang),
                 'id_satuan'         => $this->id_satuan,
                 'id_kategori'       => $this->id_kategori,
                 'harga'             => $this->harga,

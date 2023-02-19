@@ -77,7 +77,7 @@ class Kategori extends Component
         $this->validate();
 
         ModelsKategori::create([
-            'nama_kategori'     => $this->nama_kategori,
+            'nama_kategori'     => strtoupper($this->nama_kategori),
         ]);
 
         $this->alertShow(
@@ -104,7 +104,7 @@ class Kategori extends Component
         if( $this->dataId )
         {
             ModelsKategori::findOrFail($this->dataId)->update([
-                'nama_kategori'     => $this->nama_kategori
+                'nama_kategori'     => strtoupper($this->nama_kategori),
             ]);
             $this->alertShow(
                 'success', 

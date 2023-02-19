@@ -98,7 +98,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="tambahDataModalLabel">Tambah Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" wire:click.prevent="cancel()" class="close" data-dismiss="modal"
+                        aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -184,7 +185,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary tw-bg-gray-300"
+                        <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary tw-bg-gray-300"
                             data-dismiss="modal">Close</button>
                         <button type="submit" wire:click.prevent="store()" wire:loading.attr="disabled"
                             class="btn btn-primary tw-bg-blue-500">Save Data</button>
@@ -290,7 +291,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary tw-bg-gray-300"
+                        <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary tw-bg-gray-300"
                             data-dismiss="modal">Close</button>
                         <button type="submit" wire:click.prevent="update()" wire:loading.attr="disabled"
                             class="btn btn-primary tw-bg-blue-500">Save Changes</button>
